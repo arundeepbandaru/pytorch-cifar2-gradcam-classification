@@ -1,0 +1,45 @@
+image: python:3.9
+
+stages:
+  - lint
+  - type-check
+  - test
+  - coverage
+
+before_script:
+  - python -V
+  - pip install -r requirements.txt
+
+black:
+  stage: lint
+  script:
+    - pip install black
+    - black --check .
+
+# flake8:
+#   stage: lint
+#   script:
+#     - pip install flake8
+#     - flake8 .
+
+mypy:
+  stage: type-check
+  script:
+    - pip install mypy
+    - mypy .
+
+pytest:
+  stage: test
+  script:
+    - pip install pytest
+    - pytest
+
+coverage:
+  stage: coverage
+  script:
+    - pip install pytest-cov
+    - pytest --cov=my_project --cov-report=html:cov_html --cov-report=term
+  artifacts:
+    paths:
+    - cov_html/
+    expire_in: 1 week
