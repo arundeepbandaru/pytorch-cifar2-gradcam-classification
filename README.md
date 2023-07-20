@@ -1,4 +1,4 @@
-# 2023-interns-cifar-cnn: CIFAR CNN with GradCAM Visualization
+# CIFAR CNN with GradCAM Visualization using PyTorch
 
 This repository contains a Convolutional Neural Network (CNN) model pipeline for a subset of the CIFAR-10 dataset, except only containing images of planes and ships. The pipeline consists of 3 Python scripts that perform data processing, model training and evaluation, visualization and inference. The scripts use PyTorch for model training and GradCAM visualization.
 
